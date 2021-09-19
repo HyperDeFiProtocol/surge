@@ -101,6 +101,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         proxies.push(Proxy::new(key(&s), &s));
     }
 
+    if proxies.len() == 0 {
+        println!("No proxies loaded...");
+        std::process::exit(0);
+    }
+
     let mut hyprid_connect:Proxies = Proxies::new("🛣️ HC");
     let mut hkg_iepl:Proxies = Proxies::new("🇭🇰 香港 IEPL");
     let mut hkg:Proxies = Proxies::new("🇭🇰 香港");
