@@ -232,6 +232,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     configs.push(proxy_group_select("Speedtest = select, Proxy, Direct, Domestic", vec_proxies.clone()));
     configs.push(proxy_group_select("PayPal = select, Proxy, Direct, Domestic", vec_proxies.clone()));
     configs.push(proxy_group_select("Microsoft = select, Domestic, Proxy, Direct", vec_proxies.clone()));
+    configs.push(String::from("\n"));
 
     // [Rule]
     configs.push(config_rule);
