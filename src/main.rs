@@ -253,8 +253,17 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let output: String = re.replace_all(&configs.join("\n"), "\n\n").into();
 
     // output
-    fs::write("./output/auto.conf", &output)?;
-    println!("{}", output);
+    print!("Write to `./output/auto.conf`... ");
+    match fs::write("./output/auto.conf", &output) {
+        Err(_err) => {
+            println!("Failed!\n\n");
+            println!("{}", _err);
+            std::process::exit(0);
+        },
+        Ok(_) => {
+            println!("Success!");
+        }
+    }
 
     Ok(())
 }
